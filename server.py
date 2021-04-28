@@ -253,22 +253,21 @@ def get_transform(lat,lon,from_type,to_type,id:int):
     '''
     if from_type == to_type:
         result =[lon,lat]
-    if from_type == 1:
+    elif from_type == 1:
         if to_type == 2:
             result = bd09_to_wgs84(lon,lat)
         elif to_type == 3:
             result = bd09_to_gcj02(lon,lat)
-    if from_type == 2:
+    elif from_type == 2:
         if to_type == 1:
             result = wgs84_to_bd09(lon,lat)
         elif to_type == 3:
             result = wgs84_to_gcj02(lon,lat)
-    if from_type == 3:
+    elif from_type == 3:
         if to_type == 1:
             result = gcj02_to_bd09(lon,lat)
         elif to_type == 2:
             result = gcj02_to_wgs84(lon,lat)
-    
     data = {'content':result}
     with open('./tmp_data/{}.json'.format(id), 'w+') as f:
         json.dump(data, f)

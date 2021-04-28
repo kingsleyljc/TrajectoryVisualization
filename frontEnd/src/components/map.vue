@@ -55,8 +55,8 @@
             <el-row><el-radio :label="3">gcj坐标系</el-radio></el-row>
           </el-radio-group>
           <el-row>
-            <el-input v-model="coord.lat" placeholder="longitude" oninput="value=value.replace(/[^0-9.]/g,'')" />
-            <el-input v-model="coord.lon" placeholder="latitude" oninput="value=value.replace(/[^0-9.]/g,'')" />
+            <el-input v-model="coord.lat" placeholder="latitude" oninput="value=value.replace(/[^0-9.]/g,'')" />
+            <el-input v-model="coord.lon" placeholder="longitude" oninput="value=value.replace(/[^0-9.]/g,'')" />
             <el-button type="warning" @click="transform">转换</el-button>
           </el-row>
           <el-row v-if="coord.converted.visable" style="color:#9e7d60ff;font-weight:bolder">
