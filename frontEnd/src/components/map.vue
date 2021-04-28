@@ -6,9 +6,10 @@
     <el-aside>
       <el-tabs stretch>
         <el-tab-pane label="操作栏">
-          <i class="el-icon-edit-outline" id="diy"></i>
           <el-row type="flex" justify="center">
-            <el-button type="warning" @click="backCenter">回到原中心位置</el-button>
+          <i class="el-icon-edit-outline" id="diy"></i>
+
+          <p style="color:#9e7d60ff;font-weight:bolder">选择文件的原坐标系</p>
           </el-row>
           <el-radio-group v-model="type" @change="typeChange">
             <el-row type="flex" justify="center">
@@ -21,9 +22,19 @@
               <el-radio :label="3">gcj坐标系</el-radio>
               </el-row>
           </el-radio-group>
+          <el-row type="flex" justify="center">
+          <i class="el-icon-edit-outline" id="diy"></i>
+
+          <p style="color:#9e7d60ff;font-weight:bolder">选择目录</p>
+          </el-row>
           <el-row type="flex">
             <el-input v-model="dir" placeholder="目录"></el-input>
             <el-button type="warning" @click="listDir">获取目录</el-button>
+          </el-row>
+          <el-row type="flex" justify="center">
+          <i class="el-icon-edit-outline" id="diy"></i>
+
+          <p style="color:#9e7d60ff;font-weight:bolder">目录下的文件</p>
           </el-row>
           <el-checkbox-group
             v-model="checked"
@@ -37,23 +48,24 @@
           </el-checkbox-group>
         </el-tab-pane>
         <el-tab-pane label="坐标系转换">
+          <p style="color:#9e7d60ff;font-weight:bolder">选择经纬度点原坐标系</p>
           <el-radio-group v-model="coord.type">
             <el-row><el-radio :label="1">百度坐标系</el-radio></el-row>
             <el-row><el-radio :label="2">wgs坐标系</el-radio></el-row>
             <el-row><el-radio :label="3">gcj坐标系</el-radio></el-row>
           </el-radio-group>
           <el-row>
-            <el-input v-model="coord.lat" placeholder="lon" oninput="value=value.replace(/[^0-9.]/g,'')" />
-            <el-input v-model="coord.lon" placeholder="lat" oninput="value=value.replace(/[^0-9.]/g,'')" />
+            <el-input v-model="coord.lat" placeholder="longitude" oninput="value=value.replace(/[^0-9.]/g,'')" />
+            <el-input v-model="coord.lon" placeholder="latitude" oninput="value=value.replace(/[^0-9.]/g,'')" />
             <el-button type="warning" @click="transform">转换</el-button>
           </el-row>
-          <el-row v-if="coord.converted.visable">
+          <el-row v-if="coord.converted.visable" style="color:#9e7d60ff;font-weight:bolder">
             {{`百度坐标系: [${coord.converted[1][0]}, ${coord.converted[1][1]}]`}}
           </el-row>
-          <el-row v-if="coord.converted.visable">
+          <el-row v-if="coord.converted.visable" style="color:#9e7d60ff;font-weight:bolder">
             {{`wgs坐标系: [${coord.converted[2][0]}, ${coord.converted[2][1]}]`}}
           </el-row>
-          <el-row v-if="coord.converted.visable">
+          <el-row v-if="coord.converted.visable" style="color:#9e7d60ff;font-weight:bolder">
             {{`gcj坐标系: [${coord.converted[3][0]}, ${coord.converted[3][1]}]`}}
           </el-row>
         </el-tab-pane>
@@ -164,10 +176,10 @@ export default {
       this.series.splice(this.series.findIndex((o) => o.name === file), 1)
       this.chart.setOption({ series: this.series }, { replaceMerge: 'series' })
     },
-    backCenter: function () {
-      this.centerCoords = [104.08769817540933, 30.70018619836269]
-      this.chart.setOption({ bmap: this.bmap }, { replaceMerge: 'bmap' })
-    },
+    // backCenter: function () {
+    //   this.centerCoords = [104.08769817540933, 30.70018619836269]
+    //   this.chart.setOption({ bmap: this.bmap }, { replaceMerge: 'bmap' })
+    // },
     init: function () {
       this.bmap.center = [104.08769817540933, 30.70018619836269]
       this.chart = echarts.init(this.$refs.map, null, { useDirtyRect: true })
@@ -218,26 +230,11 @@ export default {
 .el-row {
   margin-bottom: 10px;
 }
-.loading {
-  color: red;
+.el-radio{
+  color:#ffffff !important;
 }
-.el-tag {
-  margin-bottom: 6px;
-  background-color: #2f4050 !important;
-  color: #9e7d60ff !important;
-  border-color: #9e7d60ff !important;
-  font-size: 10px;
-  height: 8% !important;
-}
-.el-pagination .btn-next,
-.el-pagination .btn-prev,
-.el-dialog,
-.el-pager li,
-.el-input-number__decrease,
-.el-input-number__increase {
-  background-color: #2f4050 !important;
-  color: #9e7d60ff !important;
-  border-color: #9e7d60ff !important;
+.el-checkbox{
+  color:#ffffff !important;
 }
 .el-input__inner {
   background-color: #3f444c !important;

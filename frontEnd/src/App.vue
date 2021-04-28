@@ -3,7 +3,7 @@
     <el-container style="height: 100%">
       <el-header>
         <i class="el-icon-location-outline"></i>
-        OSM显示器
+        CSV 轨迹点可视化
       </el-header>
       <Map></Map>
     </el-container>
@@ -32,6 +32,21 @@ body {
 }
 .anchorBL {
   display: none;
+}
+.el-radio__input.is-checked+.el-radio__label{
+  color: #9e7d60ff !important;
+}
+.el-radio__input.is-checked .el-radio__inner{
+  border-color: #9e7d60ff !important;
+  background: #9e7d60ff !important;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label{
+  color: #9e7d60ff !important;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+  background-color:#9e7d60ff !important;
+  border-color: #9e7d60ff !important;
+
 }
 .el-header {
   text-align: left;
