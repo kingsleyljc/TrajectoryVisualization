@@ -9,7 +9,7 @@ Visualize trajectory points in .csv based on Baidu Map.
 ![demo](https://github.com/kingsleyljc/TrajectoryVisualization/blob/main/Demo_gif/Select_csv.gif)
 ## Coordinate Convert 坐标系转换
 ###支持gcj, wgs, bd坐标之间的转换.
-![demo](https://github.com/kingsleyljc/TrajectoryVisualization/blob/main/Demo_gif/Coor_convert.gif)
+![demo](https://github.com/kingsleyljc/TrajectoryVisualization/blob/main/Demo_gif/Coor_convert1.gif)
 # Author
 Shenzhen University.
 2018151009@email.szu.edu.cn
