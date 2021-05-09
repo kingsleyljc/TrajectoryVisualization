@@ -149,7 +149,7 @@ export default {
       const res = await this.$axios({
         method: 'GET',
         url: `http://localhost:8080/${this.dir}/${file}`,
-        params: { transform: false, type: 2, count, offset: 0 }
+        params: { transform: false, type: this.type, count, offset: 0 }
       })
       this.series[index].data = res.data.content
       this.bmap.center = res.data.content[0]
