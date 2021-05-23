@@ -152,7 +152,7 @@ export default {
         params: { transform: false, type: this.type, count, offset: 0 }
       })
       this.series[index].data = res.data.content
-      this.bmap.center = res.data.content[0]
+      this.bmap.center = res.data.content[0].value
 
       this.chart.setOption({ bmap: this.bmap }, { replaceMerge: 'bmap' })
       this.chart.setOption({ series: this.series }, { replaceMerge: 'series' })

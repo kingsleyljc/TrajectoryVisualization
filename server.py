@@ -228,7 +228,9 @@ def get_points(dir:str,id:int,coor_type:int,amount:int,offset:int):
             lon_lat = gcj02_to_bd09(alon, alat)
         elif coor_type == 1 :
             lon_lat = (alon, alat)
-        points.append([lon_lat[0],lon_lat[1]])
+        obj ={'value':[lon_lat[0],lon_lat[1]],'name':cnt}
+        # points.append([lon_lat[0],lon_lat[1]])
+        points.append(obj)
         cnt += 1
     data = {'content':points,'amount':len(df)}
     with open('./tmp_data/{}.json'.format(id), 'w+') as f:
